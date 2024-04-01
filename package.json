@@ -1,0 +1,57 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/client.js",
+  "scripts": {
+    "service": "yarn ts-node src/client.ts",
+    "compress": "yarn ts-node src/compress.ts",
+    "createBg": "yarn ts-node src/createBg.ts",
+    "combin": "yarn ts-node src/combin.ts",
+    "getData": "yarn ts-node src/downProduction/getData.ts",
+    "getDataFree": "yarn ts-node src/downProduction/getDataFree.ts",
+    "batchProductionNo": "yarn ts-node src/downProduction/batchProductionNo.ts",
+    "createProject": "yarn ts-node src/downProduction/createProductionFile.ts",
+    "getInfo": "yarn ts-node src/downProduction/getInfoBySkuIds.ts",
+    "getShopInfo": "yarn ts-node src/downProduction/getProductionsByShops.ts",
+    "genExcel": "yarn ts-node src/downProduction/genExcel.ts",
+    "genPro": "npm run createProject && npm run genExcel",
+    "shopData": "yarn ts-node src/shopData/index.ts",
+    "purchases": "yarn ts-node src/purchases/index.ts",
+    "getCategory": "yarn ts-node src/purchases/getCategory.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^12.12.26",
+    "nyc": "^15.0.0",
+    "source-map-support": "^0.5.16",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "@alicloud/imageseg20191230": "2.0.5",
+    "@alicloud/openapi-client": "^0.4.4",
+    "@alicloud/tea-console": "^1.0.0",
+    "@alicloud/tea-typescript": "^1.7.1",
+    "@alicloud/tea-util": "^1.4.7",
+    "axios": "^1.6.2",
+    "cheerio": "^1.0.0-rc.12",
+    "gb2312-hex": "^1.1.0",
+    "glob": "^10.3.10",
+    "gm": "^1.25.0",
+    "iconv-gbk": "^0.1.0",
+    "mysql": "^2.18.1",
+    "node-fetch": "^3.3.2",
+    "node-xlsx": "^0.23.0",
+    "p-limit": "^5.0.0",
+    "pkg-dir": "^8.0.0",
+    "sharp": "^0.33.1",
+    "typeorm": "^0.3.17"
+  },
+  "files": [
+    "dist",
+    "src"
+  ]
+}
