@@ -1,11 +1,13 @@
 import { writeFile, writeFileSync } from "fs";
 
 import { getFilterCode } from "./excel";
+
+import { authCookie, authToken, shopInfoId } from "../global";
 let skus = [];
-const authCookie =
-  "st=a6a76f532859fc340eed8e952ab5e6e3; cookieFinger=1704959470437; AlteonPmall=0a03b7fae86ea6341f41";
-const authToken = "a6a76f532859fc340eed8e952ab5e6e3";
-const shopInfoId = "202309089481";
+// const authCookie =
+//   "st=a6a76f532859fc340eed8e952ab5e6e3; cookieFinger=1704959470437; AlteonPmall=0a03b7fae86ea6341f41";
+// const authToken = "a6a76f532859fc340eed8e952ab5e6e3";
+// const shopInfoId = "202309089481";
 async function getListPage(pageNum, resultArr, totalConunt?) {
   if (totalConunt && resultArr.length >= totalConunt) {
     return resultArr;
@@ -128,7 +130,6 @@ async function run() {
       const itemTmplSkuVoList = skuData.data.itemTmplSkuVoList;
       const brandNameCh = skuData.data.brandNameCh;
 
-      console.log("🚀 ~ file: getData.ts:128 ~ run ~ skuData:", skuData);
       const data = value.data;
       current.describeUrl = data.itemPublishVo.describeUrl;
       const itemSkuInfoList = data.itemSkuInfoList;
@@ -139,8 +140,9 @@ async function run() {
         if (!data) continue;
         curSku.sellPrice = data.sellPrice;
         curSku.pictureUrl = data.pictureUrl;
+        curSku.saleNum = data.saleNum;
         // 有可能多个，默认取第一个url
-        curSku.exUrl = skuVo?.skuPicUrls[0]?.url;
+        curSku.exUrl = skuVo?.skuPicUrls?.[0]?.url;
         curSku.brandName = brandNameCh;
       }
       current.skus = itemSkuInfoList;

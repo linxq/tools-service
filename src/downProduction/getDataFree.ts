@@ -1,12 +1,9 @@
 import pLimit from "p-limit";
 import { writeFile, writeFileSync } from "fs";
-
+import { authCookie, authToken, shopInfoId } from "../global";
 import { getFilterCode } from "./excel";
 let skus = [];
-const authCookie =
-  "cookieFinger=1710226004750; st=370bd444624f6c15e4677352a849c688; AlteonPmall=0a03b7f9b25200f81f41";
-const authToken = "370bd444624f6c15e4677352a849c688";
-const shopInfoId = "202112271343";
+
 async function getListPage(pageNum, resultArr, totalConunt?) {
   if (totalConunt && resultArr.length >= totalConunt) {
     return resultArr;
@@ -103,6 +100,7 @@ async function run() {
         if (!data) continue;
         curSku.sellPrice = data.sellPrice;
         curSku.pictureUrl = data.pictureUrl;
+        curSku.saleNum = data.saleNum;
       }
 
       current.skus = itemSkuInfoList;

@@ -10,6 +10,7 @@
     "combin": "yarn ts-node src/combin.ts",
     "getData": "yarn ts-node src/downProduction/getData.ts",
     "getDataFree": "yarn ts-node src/downProduction/getDataFree.ts",
+    "getDataByIDs": "yarn ts-node src/downProduction/getDataByIDs.ts",
     "batchProductionNo": "yarn ts-node src/downProduction/batchProductionNo.ts",
     "createProject": "yarn ts-node src/downProduction/createProductionFile.ts",
     "getInfo": "yarn ts-node src/downProduction/getInfoBySkuIds.ts",

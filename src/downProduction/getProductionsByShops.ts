@@ -135,9 +135,16 @@ async function getByShopId() {
     let index = 0;
     while (arr.length < totalNum) {
       const data = await getProductionsByShop(shopId, index + 1);
+      console.log('getProduction:',index)
+      if(!data?.itemList) {
+        index++
+        totalNum=-1
+        continue
+      }
       arr = arr.concat(data.itemList.resultList);
       totalNum = data.itemList.count;
       index++;
+      
     }
 
     arr.forEach((item, index) => {

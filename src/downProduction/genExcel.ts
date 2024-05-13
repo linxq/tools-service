@@ -22,6 +22,7 @@ const title = [
   "状态",
   "品牌",
   "计量单位",
+  "销量"
 ];
 
 function genData() {
@@ -46,6 +47,7 @@ function genData() {
       oneSpu?.saleStatusView,
       oneSpu.brandName,
       curr.skuUnit,
+      String(curr.saleNum),
     ];
   });
   return result;
