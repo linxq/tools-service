@@ -9,13 +9,6 @@ import { createReadStream, writeFile } from "fs";
 
 import { globSync } from "glob";
 
-const getResponse = function (httpClient, url) {
-  return new Promise((resolve, reject) => {
-    httpClient.get(url, function (response) {
-      resolve(response);
-    });
-  });
-};
 
 function getPaths() {
   const path = `${__dirname}/../imgfrom`;
@@ -43,34 +36,6 @@ export default class Client {
       accessKeyId: accessKeyId,
       // 必填，您的 AccessKey Secret
       accessKeySecret: accessKeySecret,
-    });
-    // Endpoint 请参考 https://api.aliyun.com/product/imageseg
-    config.endpoint = `imageseg.cn-shanghai.aliyuncs.com`;
-    return new imageseg20191230(config);
-  }
-
-  /**
-   * 使用STS鉴权方式初始化账号Client，推荐此方式。
-   * @param accessKeyId
-   * @param accessKeySecret
-   * @param securityToken
-   * @return Client
-   * @throws Exception
-   */
-  static createClientWithSTS(
-    accessKeyId: string,
-    accessKeySecret: string,
-    securityToken: string
-  ): imageseg20191230 {
-    let config = new $OpenApi.Config({
-      // 必填，您的 AccessKey ID
-      accessKeyId: accessKeyId,
-      // 必填，您的 AccessKey Secret
-      accessKeySecret: accessKeySecret,
-      // 必填，您的 Security Token
-      securityToken: securityToken,
-      // 必填，表明使用 STS 方式
-      type: "sts",
     });
     // Endpoint 请参考 https://api.aliyun.com/product/imageseg
     config.endpoint = `imageseg.cn-shanghai.aliyuncs.com`;

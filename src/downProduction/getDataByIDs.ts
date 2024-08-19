@@ -5,9 +5,7 @@ import { getFilterCode } from "./excel";
 import { authCookie, authToken, shopInfoId } from "../global";
 let skus = [];
 
-let spus:any = [{
-  id:10007974846
-}]
+let spus:any = [10007814189,10008407218,10006395695,10008306698,10007566489,10007046646]
 async function getListPage(pageNum, resultArr, totalConunt?) {
   if (totalConunt && resultArr.length >= totalConunt) {
     return resultArr;
@@ -119,7 +117,11 @@ function getSkuList(resultArr: Array<any>) {
 
 async function run() {
   try {
-    let resultArr = spus
+    let resultArr = spus.map(item=> {
+      return {
+        id: item
+      }
+    })
 
     let index = 0;
     for (let current of resultArr) {
