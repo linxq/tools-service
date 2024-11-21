@@ -9,9 +9,8 @@ import { createReadStream, writeFile } from "fs";
 
 import { globSync } from "glob";
 
-
 function getPaths() {
-  const path = `${__dirname}/../imgfrom`;
+  const path = `${__dirname}/../imgfrom/`;
   const arr = globSync(`${path}/**/*.{png,jpeg,jpg}`);
   console.log(arr, arr.length);
   return arr;

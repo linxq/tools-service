@@ -8,6 +8,8 @@
     "compress": "yarn ts-node src/compress.ts",
     "createBg": "yarn ts-node src/createBg.ts",
     "combin": "yarn ts-node src/combin.ts",
+    "oneCommond": "npm run compress && npm run service && npm run combin",
+    "one": "npm run compress  && npm run combin",
     "getData": "yarn ts-node src/downProduction/getData.ts",
     "getDataFree": "yarn ts-node src/downProduction/getDataFree.ts",
     "getDataByIDs": "yarn ts-node src/downProduction/getDataByIDs.ts",
@@ -19,7 +21,9 @@
     "genPro": "npm run createProject && npm run genExcel",
     "shopData": "yarn ts-node src/shopData/index.ts",
     "purchases": "yarn ts-node src/purchases/index.ts",
-    "getCategory": "yarn ts-node src/purchases/getCategory.ts"
+    "getCategory": "yarn ts-node src/purchases/getCategory.ts",
+    "checkBrand": "yarn ts-node src/checkBrand/index.ts",
+    "getLogo": "yarn ts-node src/getLogoImage.ts"
   },
   "author": "",
   "license": "ISC",

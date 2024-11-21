@@ -1,4 +1,4 @@
 export const authCookie =
-"cookieFinger=1717549468419; st=3f62ed11d3030790edf250128afdbee2; AlteonPmall=0a03b7f639aed7571f41";
-export const authToken = "3f62ed11d3030790edf250128afdbee2";
-export const shopInfoId = "202309089481";
+  "cookieFinger=1730093339747; st=4fc2bd8734463d8220b2ff9e25d4eede; AlteonPmall=0a03b7f3fce894981f41";
+export const authToken = "4fc2bd8734463d8220b2ff9e25d4eede";
+export const shopInfoId = "202206149209";

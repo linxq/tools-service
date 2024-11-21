@@ -1,10 +1,12 @@
 import { globSync } from "glob";
 
 const gm = require("gm").subClass({ imageMagick: "7+" });
-
+const size = 710;
+const length = size;
+const width = size;
 async function compress(imgPath) {
   await gm(imgPath)
-    .resize(800, 800)
+    .resize(length, width)
     .noProfile()
     .write(imgPath, (error) => {
       console.log(error);

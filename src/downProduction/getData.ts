@@ -4,10 +4,7 @@ import { getFilterCode } from "./excel";
 
 import { authCookie, authToken, shopInfoId } from "../global";
 let skus = [];
-// const authCookie =
-//   "st=a6a76f532859fc340eed8e952ab5e6e3; cookieFinger=1704959470437; AlteonPmall=0a03b7fae86ea6341f41";
-// const authToken = "a6a76f532859fc340eed8e952ab5e6e3";
-// const shopInfoId = "202309089481";
+
 async function getListPage(pageNum, resultArr, totalConunt?) {
   if (totalConunt && resultArr.length >= totalConunt) {
     return resultArr;
@@ -127,8 +124,8 @@ async function run() {
       // if (index > 2) break;
       const value: any = await getSkuFetch(current.id);
       const skuData: any = await getSkuData(current.id);
-      const itemTmplSkuVoList = skuData.data.itemTmplSkuVoList;
-      const brandNameCh = skuData.data.brandNameCh;
+      const itemTmplSkuVoList = skuData?.data?.itemTmplSkuVoList;
+      const brandNameCh = skuData?.data?.brandNameCh;
 
       const data = value.data;
       current.describeUrl = data.itemPublishVo.describeUrl;
@@ -136,7 +133,7 @@ async function run() {
 
       for (let curSku of itemSkuInfoList) {
         let data = await getSkuPic(curSku.id);
-        let skuVo = itemTmplSkuVoList.find((item) => (item.id = curSku.id));
+        let skuVo = itemTmplSkuVoList?.find((item) => (item.id = curSku.id));
         if (!data) continue;
         curSku.sellPrice = data.sellPrice;
         curSku.pictureUrl = data.pictureUrl;

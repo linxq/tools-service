@@ -38,6 +38,29 @@ export function clearDir(path) {
   emptyDir(path);
   rmEmptyDir(path);
 }
+/**
+ * 制作文件夹路径
+ * @param pathStr
+ * @returns
+ */
+export function mkdirPath(pathStr) {
+  let basePath = "";
+  let tempDirArray = pathStr.split("\\");
+  console.log(
+    "🚀 ~ file: combin.ts:91 ~ mkdirPath ~ tempDirArray:",
+    tempDirArray
+  );
+
+  for (let i = 0; i < tempDirArray.length - 1; i++) {
+    basePath = i === 0 ? tempDirArray[i] : basePath + "/" + tempDirArray[i];
+    console.log("🚀 ~ file: combin.ts:96 ~ mkdirPath ~ basePath:", basePath);
+
+    if (!fs.existsSync(basePath)) {
+      fs.mkdirSync(basePath);
+    }
+  }
+  return basePath;
+}
 
 /**
  * 睡眠

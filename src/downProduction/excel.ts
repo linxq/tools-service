@@ -57,3 +57,21 @@ export function getSkuIds() {
     return null;
   }
 }
+
+export function getBrands() {
+  try {
+    const workSheetsFromFile = xlsx.parse(
+      `${__dirname}\\..\\..\\excel\\brands.xlsx`
+    );
+    const sheet = workSheetsFromFile[0];
+    const data = sheet.data;
+
+    const array = data.map(function (current, index) {
+      return current[0];
+    });
+    return array;
+  } catch (e) {
+    console.error(e);
+    return null;
+  }
+}
